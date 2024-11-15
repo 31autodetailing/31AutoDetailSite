@@ -7,7 +7,7 @@ export default defineConfig({
     host: true
   },
   integrations: [],
-  site: 'https://31autodetailing.github.io',
+  site: 'https//31autodetailing.github.io',
   base: '/31AutoDetailSite',
   trailingSlash: "ignore"
 });
