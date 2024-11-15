@@ -1,17 +1,18 @@
 ---
 const { company_name } = Astro.props;
+const baseUrl = "31AutoDetailSite";
 ---
 
 <nav>
-  <a class="company-link" href="/">
+  <a class="company-link" href=`${baseUrl}`>
     <h1>{company_name}</h1>
   </a>
   <div class="nav-links">
-    <a href="/about">ABOUT</a>
-    <a href="/contact">CONTACT</a>
-    <a href="/services">SERVICES</a>
-    <a href="/gallery">GALLERY</a>
-    <a href="/quote">GET A QUOTE</a>
+    <a href=`${baseUrl}/about`>ABOUT</a>
+    <a href=`${baseUrl}/contact`>CONTACT</a>
+    <a href=`${baseUrl}/services`>SERVICES</a>
+    <a href=`${baseUrl}/gallery`>GALLERY</a>
+    <a href=`${baseUrl}/quote`>GET A QUOTE</a>
   </div>
   <hamburger>
     <input type="checkbox"/>
@@ -19,11 +20,12 @@ const { company_name } = Astro.props;
     <span></span>
     <span></span>
     <div id="menu">
-      <a href="/about"><p>ABOUT</p></a>
-      <a href="/contact"><p>CONTACT</p></a>
-      <a href="/services"><p>SERVICES</p></a>
-      <a href="/gallery"><p>GALLERY</p></a>
-      <a href="/quote"><p>GET A QUOTE</p></a>
+      <a href=`${baseUrl}`>HOME</a>
+      <a href=`${baseUrl}/about`>ABOUT</a>
+      <a href=`${baseUrl}/contact`>CONTACT</a>
+      <a href=`${baseUrl}/services`>SERVICES</a>
+      <a href=`${baseUrl}/gallery`>GALLERY</a>
+      <a href=`${baseUrl}/quote`>GET A QUOTE</a>
     </div>
   </hamburger>
 </nav>
