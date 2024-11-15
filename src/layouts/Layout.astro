@@ -7,8 +7,10 @@ declare global {
   }
 }
 const { title } = Astro.props;
+const company_name = "31 Auto Detailing";
 
 import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <!doctype html>
@@ -28,6 +30,7 @@ import Footer from '../components/Footer.astro';
 		<title>{title}</title>
 	</head>
 	<body>
+    <Nav company_name={company_name}/>
 		<slot />
     <Footer />
 

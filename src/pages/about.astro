@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
 
 import { Image } from "astro:assets";
 import picture1 from "../../public/clay-bar-treatment.webp";
@@ -15,7 +14,6 @@ const location = "Massachusetts";
 
 <Layout title={page_name}>
   <main>
-    <Nav company_name={company_name} />
     <div class="about-div">
       <h2>{page_name}</h2>
       <div class="about-page-intro">
