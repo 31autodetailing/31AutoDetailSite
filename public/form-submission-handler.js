@@ -82,18 +82,14 @@
         }
         if (xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
           var thankYouMessage = form.querySelector(".submitted-message");
           if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
+            thankYouMessage.style.display = "flex";
           }
         } else {
           const errorMessage = form.querySelector(".error-message");
           if (errorMessage) {
-            errorMessage.style.display = "block";
+            errorMessage.style.display = "flex";
           }
         }
       }

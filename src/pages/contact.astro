@@ -5,6 +5,7 @@ import RotaryLoader from "../icons/rotary_looking_loader.astro";
 
 const company_name = "31 Auto Detailing";
 const page_name = "CONTACT"
+const baseUrl = "/31AutoDetailSite";
 ---
 
 <Layout title={page_name}>
@@ -44,7 +45,8 @@ const page_name = "CONTACT"
         <!--<div id="map" data-api-key={maps_api_key}></div>-->
         <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3386.1439039352535!2d-71.0552321!3d41.921364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e48d6787d2ac4f%3A0x7d5597c3506d1abf!2s31%20Auto%20Detailing!5e1!3m2!1sen!2sus!4v1731547767751!5m2!1sen!2sus" 
           style="border:0;" allowfullscreen="" 
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
 
       <div class="loading-div" style="display: none;">
@@ -54,7 +56,7 @@ const page_name = "CONTACT"
   </main>
 </Layout>
 
-<script data-cfasync="false" type="text/javascript" src="/form-submission-handler.js"></script>
+<script data-cfasync="false" type="text/javascript" src=`${baseUrl}/form-submission-handler.js`></script>
 
 <script>
   const textarea = document.querySelector('.message-textarea') as HTMLElement;
@@ -123,6 +125,7 @@ const page_name = "CONTACT"
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .send-message-div p {
     text-align: center;
@@ -137,12 +140,21 @@ const page_name = "CONTACT"
   }
   .send-message-div form button[type=submit] {
     padding: 1rem;
+    margin-bottom: 2rem;
     border: none;
     background-color: hsla(var(--link-color), 1);
   }
-  .submitted-message {
+  .submitted-message,
+  .error-message {
     color: hsla(var(--link-hover-color), 1);
-
+    font-size: 0.4rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  error-message {
+    background-color: black;
   }
   .loading-div {
     z-index: 2;
