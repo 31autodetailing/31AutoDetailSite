@@ -1,0 +1,53 @@
+---
+const { company_name } = Astro.props;
+
+import Facebook from '../icons/facebook.astro';
+import Instagram from '../icons/instagram.astro';
+import Youtube from '../icons/youtube.astro';
+---
+
+<footer>
+  <h3>{company_name}</h3>
+  <div class="footer-info">
+    <p>684 S Main St, Raynham, MA 02767</p>
+    <p>+1-508-837-9451</p>
+    <p>31detail@gmail.com</p>
+    <div class="links">
+      <a href="">
+        <Facebook />
+      </a>
+      <a href="">
+        <Instagram />
+      </a>
+      <a href="">
+        <Youtube />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+    text-align: center;
+  }
+  footer p {
+    margin: 0.3rem 0;
+  }
+  footer a {
+    font-size: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: hsla(var(--link-color), 1);
+    margin: 0 0.6rem;
+  }
+  footer a:hover {
+    color: hsla(var(--link-hover-color), 1);
+  }
+</style>

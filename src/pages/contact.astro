@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+import RotaryLoader from "../icons/rotary_looking_loader.astro";
+
+const company_name = import.meta.env.COMPANY_NAME;
+const page_name = "CONTACT"
+---
+
+<Layout title={page_name}>
+  <main>
+      <Nav company_name={company_name} />
+      <h2>{page_name}</h2>
+      <div class="wrap-div">
+        <div class="contact-text">
+          <h4>{company_name}</h4>
+          <p><strong>Address: </strong>684 S Main St, Raynham, MA 02767</p>
+          <p><strong>Phone: </strong>+1-508-837-9451</p>
+          <p><strong>Email: </strong>31autodetail@gmail.com</p>
+          <div class="send-message-div">
+            <form
+              method="POST"
+              class="gform"
+              action="https://script.google.com/macros/s/AKfycbyyczOJp_xOoO0nalAQ0cJ2eFe75wQf189FCpOF7-apN10DWxmldnYSQG9UlcadMtbq/exec"
+            >
+              <p><strong>Send us an email</strong></p>
+              <input name="email" type="email" placeholder="your@email">
+              <br>
+              <input name="name" type="text" placeholder="your name">
+              <br>
+              <textarea name="message" class="message-textarea" placeholder="message"
+                rows="1" style="overflow:hidden;"
+              ></textarea>
+              <br>
+              <button type="submit">Submit</button>
+              <div style="display:none" class="submitted-message">
+                <p>Thank you for sending a message, we will be in touch!</p>
+              </div>
+              <div style="display:none" class="error-message">
+                <p>Thank you for sending a message, we will be in touch!</p>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--<div id="map" data-api-key={maps_api_key}></div>-->
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3386.1439039352535!2d-71.0552321!3d41.921364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e48d6787d2ac4f%3A0x7d5597c3506d1abf!2s31%20Auto%20Detailing!5e1!3m2!1sen!2sus!4v1731547767751!5m2!1sen!2sus" 
+          style="border:0;" allowfullscreen="" 
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="loading-div" style="display: none;">
+        <RotaryLoader />
+      </div>
+
+  </main>
+</Layout>
+
+<script data-cfasync="false" type="text/javascript" src="/form-submission-handler.js"></script>
+
+<script>
+  const textarea = document.querySelector('.message-textarea') as HTMLElement;
+  textarea.addEventListener('input', () => {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+  })
+</script>
+
+<style>
+  :root {
+    --maps-max-width: 800px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h2 {
+    display: flex;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "Spline Sans Mono", monospace;
+    margin: 1.5rem auto;
+  }
+  .wrap-div {
+    display: inline-flex;
+    flex-direction: unset;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 0 2rem 0;
+  }
+  .contact-text {
+    display: inline-flex;
+    flex-direction: column;
+    background: hsla(var(--link-color), 0.25);
+    flex: 1 0 auto;
+    max-width: var(--maps-max-width);
+    padding: 1.5rem 0;
+  }
+  .contact-text h4 {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    padding: 0 2rem;
+  }
+  .contact-text p {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+    padding: 0 2rem;
+  }
+  #map {
+    display: inline-flex;
+    width: 100vw;
+    height: 40rem;
+    max-width: var(--maps-max-width);
+  }
+  .send-message-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+  .send-message-div form {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .send-message-div p {
+    text-align: center;
+  }
+  .send-message-div form input {
+    font-size:1.2rem;
+    padding: 3px;
+  }
+  .send-message-div form textarea {
+    font-size:1.2rem;
+    padding: 3px;
+  }
+  .send-message-div form button[type=submit] {
+    padding: 1rem;
+    border: none;
+    background-color: hsla(var(--link-color), 1);
+  }
+  .submitted-message {
+    color: hsla(var(--link-hover-color), 1);
+
+  }
+  .loading-div {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+</style>
+
+<!--
+<script src="/initializeMap.js" is:inline></script>
+-->

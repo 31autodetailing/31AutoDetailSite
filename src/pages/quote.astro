@@ -1,0 +1,386 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+import RotaryLoader from "../icons/rotary_looking_loader.astro";
+
+const company_name = import.meta.env.COMPANY_NAME;
+const page_name = "QUOTE"
+---
+
+<Layout title={page_name}>
+  <main>
+    <Nav company_name={company_name} />
+    <div class="form-div">
+      <form id="add-quote-form">
+
+        <div class="get-quote-intro">
+          <h2>Request a quote</h2>
+          <span>Fill out this form and we will be in touch!</span>
+        </div>
+
+        <p class="question">Which category does your vehicle fit into?</p>
+        <div class="multiple-choice" id="vehicle-category">
+          <input type="radio" id="sedan" name="vehicle-category" value="Sedan" required>
+          <label for="sedan">Sedan</label>
+          <br>
+          <input type="radio" id="two-row-suv" name="vehicle-category" value="Two Row SUV">
+          <label for="two-row-suv">Two Row SUV</label>
+          <br>
+          <input type="radio" id="three-row-suv" name="vehicle-category" value="Three Row SUV">
+          <label for="three-row-suv">Three Row SUV</label>
+          <br>
+          <input type="radio" id="single-cab-truck" name="vehicle-category" value="Single Cab Truck">
+          <label for="single-cab-truck">Single Cab Truck</label>
+          <br>
+          <input type="radio" id="extended-cab-truck" name="vehicle-category" value="Extended Cab Truck">
+          <label for="extended-cab-truck">Extended Cab Truck</label>
+          <br>
+          <input type="radio" id="crew-mega-cab-truck" name="vehicle-category" value="Crew & Mega Cab Truck">
+          <label for="crew-mega-cab-truck">Crew & Mega Cab Truck</label>
+          <br>
+          <input type="radio" id="other" name="vehicle-category" value="Other">
+          <label for="other">Other</label>
+        </div>
+
+        <br>
+
+        <p class="question">What area(s) of your vehicle would you like cleaned ?</p>
+        <div class="multiple-choice" id="service-type">
+          <input type="radio" id="interior" name="service-type" value="Interior" required>
+          <label for="interior">Interior</label>
+          <br>
+          <input type="radio" id="exterior" name="service-type" value="Exterior">
+          <label for="exterior">Exterior</label>
+          <br>
+          <input type="radio" id="both" name="service-type" value="Both Interior and Exterior">
+          <label for="both">Both Interior and Exterior</label>
+        </div>
+
+        <br>
+
+        <div class="service-description interior">
+          <h4>Interior Services</h4>
+          <p>
+            A basic Interior detailing consists of a basic vacuum(including trunk), 
+            scrubbed and wiped down center console, dash, door panels, door jams, windows, 
+            and other miscellaneous surfaces.
+          </p>
+          <p class="reminder">*Some vehicles may see an increased price if excessively dirty*</p>
+        </div>
+
+        <div class="service-description interior-and-exterior" style="display: none">
+          <h4 >Interior & Exterior Services</h4>
+          <p>
+            A basic Interior detailing consists of a basic vacuum(including trunk), 
+            scrubbed and wiped down center console, dash, door panels, door jams, windows, 
+            and other miscellaneous surfaces.
+            <br>
+            <br>
+            A basic exterior detailing consists of spraying the vehicle with soap and softly 
+            scrubbed from top to bottom, cleaning wheels, tires, & wheel well, bug removal, tire 
+            shine, black trim dressing, and clean windows.
+            <br>
+          </p>
+          <p class="reminder">*Some vehicles may see an increased price if excessively dirty*</span>
+        </div>
+
+        <div class="service-checklist interior">
+          <p class="question">Additional Interior Services</p>
+          <div class="checklist" id="interior-services">
+            <input type="checkbox" id="shampoo-seats" name="interior-services" value="Shampoo-Seats">
+            <label for="shampoo-seats">Shampoo Seats</label>
+            <br>
+            <input type="checkbox" id="shampoo-carpet" name="interior-services" value="Shampoo-Carpet">
+            <label for="shampoo-carpet">Shampoo Carpet</label>
+            <br>
+            <input type="checkbox" id="shampoo-headliner" name="interior-services" value="Shampoo-Headliner">
+            <label for="shampoo-headliner">Shampoo Headliner</label>
+            <br>
+            <input type="checkbox" id="steam-clean" name="interior-services" value="Steam-Clean">
+            <label for="steam-clean">Steam Clean all nooks and crannies</label>
+            <br>
+            <input type="checkbox" id="pet-hair" name="interior-services" value="Pet-Hair-Removal">
+            <label for="pet-hair">Pet Hair Removal</label>
+            <br>
+            <input type="checkbox" id="none" name="interior-services" value="None">
+            <label for="none">None</label>
+          </div>
+        </div>
+
+        <div class="service-description exterior">
+          <h4>Exterior Services</h4>
+          <p>
+            A basic exterior detailing consists of spraying the vehicle with soap and softly 
+            scrubbed from top to bottom, cleaning wheels, tires, & wheel well, bug removal, tire shine, 
+            black trim dressing, and clean windows. 
+          </p>
+          <p class="reminder">*Some vehicles may see an increased price if excessively dirty*</span>
+        </div>
+
+
+        <div class="service-checklist exterior">
+          <p class="question">Additional Exterior Services</p>
+          <div class="checklist" id="exterior-services">
+            <input type="checkbox" id="wax" name="exterior-services" value="Wax">
+            <label for="wax">Wax</label>
+            <br>
+            <input type="checkbox" id="clay-bar" name="exterior-services" value="Clay-Bar">
+            <label for="clay-bar">Clay Bar</label>
+            <br>
+            <input type="checkbox" id="engine-bay" name="exterior-services" value="Engine-Bay-Cleaning">
+            <label for="engine-bay">Engine Bay Cleaning</label>
+            <br>
+            <input type="checkbox" id="none" name="exterior-services" value="None">
+            <label for="none">None</label>
+          </div>
+        </div>
+
+
+
+        <h4>Contact Information</h4>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <br>
+
+        <div class="form-messages"></div>
+
+        <div class="loading-div" style="display: none">
+          <RotaryLoader />
+        </div>
+
+        <button type="submit">Submit</button>
+
+        <br>
+
+        <h4>Thank You !!!</h4>
+        <p>
+          {company_name} appreciates you filling out the quote form, 
+          we will be in contact soon to give you your final quote!
+        </p>
+
+        <br>
+      </form>
+    </div>
+  </main>
+</Layout>
+
+<style>
+   h2 {
+     margin: 1rem 0 0.5rem 0;
+     text-align: left;
+     font-size: 1.3rem;
+     font-family: "Spline Sans Mono", monospace;
+   }
+   br {
+     height: 0.3rem;
+   }
+   .get-quote-intro {
+     margin: 0.2rem 0 0.9rem 0;
+   }
+   label {
+     font-size: 1.1rem;
+   }
+   input[type=radio], input[type=checkbox] {
+     margin: 3px 10px 0 5px;
+   }
+   input[type=text], input[type=tel], input[type=email] {
+     font-size: 1.2rem;
+     padding: 3px;
+   }
+  .form-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+  #add-quote-form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+
+  .form-div h4 {
+    margin: 1rem 0 0.5rem 0;
+  }
+  .form-div p {
+    margin: 0;
+  }
+  .form-div button {
+    padding: 1rem;
+    border: none;
+    background-color: hsla(var(--link-color), 1);
+  }
+  .form-div .question {
+    padding: 0.3rem 0.5rem;
+    background-color: rgba(66, 135, 245, 0.2);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .form-div .multiple-choice, .form-div .checklist {
+    margin: 0 0 0 0.5rem;
+  }
+  .service-description {
+    border: 1px solid hsla(var(--text-color), 1);
+    border-radius: 0.5rem;
+    margin: 0 0 2rem 0;
+  }
+  .service-description h4 {
+    margin: 0.4rem;
+    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+  .service-description p {
+    margin: 0 0.4rem 0.5rem 0.4rem;
+  }
+  .service-description .reminder {
+    color: hsla(var(--link-hover-color), 1);
+    margin: 0 0.4rem;
+  }
+  .service-checklist {
+    margin: 0 0 2rem 0;
+  }
+  .loading-div {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+     top: 0;
+    left: 0;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const sheetsUrl = "https://script.google.com/macros/s/AKfycbzYqCmUPoEafdF7epXK9NsxbRgUmc9GKVbjnlRqrEOXB0YkTDyPba_YKJoeb5mEYLKMSw/exec";
+
+  const quoteForm = document.querySelector('#add-quote-form');
+
+  const serviceTypeDiv = document.querySelector('#service-type');
+  const interiorServicesDesc = document.querySelector('.service-description.interior') as HTMLElement;
+  const exteriorServicesDesc = document.querySelector('.service-description.exterior') as HTMLElement;
+  const bothDesc = document.querySelector('.service-description.interior-and-exterior') as HTMLElement;
+
+  const interiorServicesChecklist = document.querySelector('.service-checklist.interior') as HTMLElement;
+  const exteriorServicesChecklist = document.querySelector('.service-checklist.exterior') as HTMLElement;
+
+  const loadingDiv = document.querySelector('.loading-div') as HTMLElement;
+
+  for (let i of serviceTypeDiv.children) {
+    const ele = i as HTMLInputElement;
+    ele.addEventListener('click', () => {
+      if (!ele.checked) {
+        return;
+      }
+      if (ele.id === "interior") {
+        interiorServicesDesc.style.display = "block";
+        exteriorServicesDesc.style.display = "none";
+        bothDesc.style.display = "none";
+        interiorServicesChecklist.style.display = "block";
+        exteriorServicesChecklist.style.display = "none";
+      } else if (ele.id === "exterior") {
+        interiorServicesDesc.style.display = "none";
+        exteriorServicesDesc.style.display = "block";
+        bothDesc.style.display = "none";
+        interiorServicesChecklist.style.display = "none";
+        exteriorServicesChecklist.style.display = "block";
+      } else if (ele.id === "both") {
+        interiorServicesDesc.style.display = "none";
+        exteriorServicesDesc.style.display = "none";
+        bothDesc.style.display = "block";
+        interiorServicesChecklist.style.display = "block";
+        exteriorServicesChecklist.style.display = "block";
+      }
+    })
+  }
+
+  quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // get the two multiple choice questions answers
+    const vehicleCategory = document.querySelector("input[name='vehicle-category']:checked") as HTMLInputElement;
+    const serviceType = document.querySelector("input[name='service-type']:checked") as HTMLInputElement;
+
+    // get the interior and exterior services that are checked
+    const interiorServicesChecked = document.querySelectorAll("input[name='interior-services']:checked");
+    const interiorServices =
+      interiorServicesChecked.length > 0 ?
+        Array.from(interiorServicesChecked).map((i: HTMLInputElement) => i.value) : [];
+    const exteriorServicesChecked = document.querySelectorAll("input[name='exterior-services']:checked");
+    const exteriorServices =
+      exteriorServicesChecked.length > 0 ?
+        Array.from(exteriorServicesChecked).map((i: HTMLInputElement) => i.value) : [];
+    const target = e.target as HTMLFormElement;
+
+    // check for data (to not upload empty form)
+    const nameEle = target.elements.namedItem("name") as HTMLInputElement;
+    const phoneNumberEle = target.elements.namedItem("phone") as HTMLInputElement;
+    const emailEle = target.elements.namedItem("email") as HTMLInputElement;
+
+    const formMessages = document.querySelector('.form-messages') as HTMLElement;
+    if (!formMessages) { return }
+
+    if (!phoneNumberEle?.value.trim() && !emailEle?.value.trim()) {
+      formMessages.style.color = "hsla(var(--red-color), 1)";
+      formMessages.innerHTML = "Please enter a phone number or email";
+      return;
+    }
+
+    const name = nameEle?.value.trim() ? nameEle.value.trim() : "";
+    const phone = phoneNumberEle?.value.trim() ? phoneNumberEle.value.trim() : "";
+    const email = emailEle?.value.trim() ? emailEle.value.trim() : "";
+
+    const formData = {
+      vehicleCategory: vehicleCategory?.value,
+      serviceType: serviceType?.value,
+      interiorServices: JSON.stringify(interiorServices),
+      exteriorServices: JSON.stringify(exteriorServices),
+      name: name,
+      phoneNumber: phone,
+      email: email,
+    }
+
+    // show loading div
+    loadingDiv.style.display = "flex";
+
+    fetch(sheetsUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        if (data.status === "success") {
+          console.log("Uploaded successfully");
+          target.reset();
+          formMessages.style.color = "hsla(var(--link-hover-color), 1)";
+          formMessages.innerHTML = "Form submitted successfully!";
+        }
+        loadingDiv.style.display = "none";
+      })
+      .catch(err => {
+        console.error("Error: ", err);
+        loadingDiv.style.display = "none";
+      })
+
+  })
+
+})
+</script>

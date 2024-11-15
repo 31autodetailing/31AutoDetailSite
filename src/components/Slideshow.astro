@@ -1,0 +1,94 @@
+---
+interface ImageModule {
+  default: {
+    src: string;
+    width: number;
+    height: number;
+    format: string;
+  };
+}
+const images = import.meta.glob<ImageModule>('/src/assets/slideshow/*.{jpg,png,gif,webp,jfif}', { eager: true });
+const imageList = Object.values(images);
+---
+
+<div class="slideshow-div">
+  <button class="prev">{"<"}</button>
+  <div class="slideshow-pics">
+    {imageList.map((image, i) => (
+      <img src={image.default.src} alt={`${i + 1}`} class={`${i > 0 ? "hidden" : ""}`}>
+    ))}
+  </div>
+  <button class="next">{">"}</button>
+</div>
+
+
+<style>
+.slideshow-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.slideshow-div button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: none;
+  cursor: pointer;
+}
+.slideshow-div button:hover {
+  background: hsla(var(--link-color), 1);
+}
+.slideshow-pics {
+  width: 100vw;
+  max-width: 1000px;
+  height: auto;
+}
+img.hidden {
+  display: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.prev {
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5), /* Left shadow */
+            0 -5px 10px rgba(0, 0, 0, 0.5), /* Top shadow */
+            0 5px 10px rgba(0, 0, 0, 0.5);  /* Bottom shadow */
+}
+.next {
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5), /* Left shadow */
+            0 -5px 10px rgba(0, 0, 0, 0.5), /* Top shadow */
+            0 5px 10px rgba(0, 0, 0, 0.5);  /* Bottom shadow */
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slideshowImages = document.querySelectorAll(".slideshow-pics img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  let imgIndex = 0;
+  function prevImg() {
+    slideshowImages[imgIndex].classList.add("hidden");
+    if (imgIndex === 0) {
+      imgIndex = slideshowImages.length - 1;
+    } else {
+      imgIndex--;
+    }
+    slideshowImages[imgIndex].classList.remove("hidden");
+  }
+  function nextImg() {
+    slideshowImages[imgIndex].classList.add("hidden");
+    if (imgIndex === slideshowImages.length - 1) {
+      imgIndex = 0;
+    } else {
+      imgIndex++;
+    }
+    slideshowImages[imgIndex].classList.remove("hidden");
+  }
+  prevBtn.addEventListener("click", prevImg);
+  nextBtn.addEventListener("click", nextImg);
+})
+</script>

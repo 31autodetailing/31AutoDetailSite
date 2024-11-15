@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+import { Image } from "astro:assets";
+import picture1 from "../../public/clay-bar-treatment.webp";
+import picture2 from "../../public/ext_detailing_before_after_hood_bottom.jpg";
+import picture3 from "../../public/Cutting-Edge-Car-Care-Auto-Detailing-Innovations.jpeg"
+
+const company_name = import.meta.env.COMPANY_NAME;
+const page_name = "ABOUT"
+const location = "Massachusetts";
+---
+
+<Layout title={page_name}>
+  <main>
+    <Nav company_name={company_name} />
+    <div class="about-div">
+      <h2>{page_name}</h2>
+      <div class="about-page-intro">
+        <p>
+        Welcome to {company_name}! Based in {location}, we are passionate about providing
+        premium auto detailing services that bring out the best in every vehicle. With years
+        of experience and a commitment to excellence, we treat every car as if it were our own.
+        </p>
+        <Image src={picture1} alt="" />
+        <p>
+        Our team specializes in a range of detailing services, from thorough
+        interior cleaning to precise exterior polishing and protective treatments.
+        We use only high-quality products and techniques, ensuring a meticulous finish
+        that not only enhances your car’s appearance but also helps protect it from wear and
+        environmental damage.
+        </p>
+        <Image src={picture2} alt="" />
+        <p>
+        At {company_name}, customer satisfaction is our top priority. Whether you’re looking
+        to restore your car's shine, protect its finish, or simply enjoy a fresh, clean interior,
+        we’re here to deliver results that exceed expectations. 
+        Thank you for choosing us to care for your vehicle—we look forward to serving you!
+        </p>
+      </div>
+      <br>
+      <Image src={picture3} alt="" />
+      <br>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  h2 {
+    display: flex;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "Spline Sans Mono", monospace;
+    margin: 1.5rem auto;
+  }
+  .about-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .about-page-intro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;;
+  }
+  .about-page-intro p {
+    text-align: center;
+    max-width: 450px;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+  }
+  img {
+    margin: 1rem;
+    display: flex;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    object-fit: contain;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5),
+          -5px 0 10px rgba(0, 0, 0, 0.5), /* Left shadow */
+          0 -5px 10px rgba(0, 0, 0, 0.5), /* Top shadow */
+          0 5px 10px rgba(0, 0, 0, 0.5);  /* Bottom shadow */
+  }
+</style>

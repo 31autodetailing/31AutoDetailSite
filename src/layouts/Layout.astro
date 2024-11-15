@@ -1,9 +1,14 @@
 ---
-interface Props {
-	title: string;
+declare global {
+  interface Window {
+    google?: {
+      maps?: any;
+    };
+  }
 }
-
 const { title } = Astro.props;
+
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -11,40 +16,47 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    >
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Sixtyfour+Convergence&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&family=Zeyada&display=swap');
+    </style>
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
+    <Footer />
+
 	</body>
 </html>
 <style is:global>
+  /*  FONTS
+  font-family: "Mukta", sans-serif;
+  font-family: "Spline Sans Mono", monospace;
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-family: "Zeyada", cursive;
+  */
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+    --bg-color: 224, 50%, 9%;             /* #0b1222 */
+    --text-color: 224, 70%, 90%;          /* #a3b5f1 */
+    --link-color: 224, 82%, 72%;          /* #7d9cf2 */
+    --link-hover-color: 154, 81%, 69%;    /* #70f0b8 */
+    --red-color: 21, 98%, 50%;            /* #fc5a03 */
+    font-family: "Mukta", sans-serif;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  body {
+    background: hsla(var(--bg-color), 1);
+    color: hsla(var(--text-color), 1);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 </style>
