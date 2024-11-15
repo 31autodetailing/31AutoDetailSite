@@ -6,5 +6,8 @@ export default defineConfig({
     port: 5000,
     host: true
   },
-  integrations: []
+  integrations: [],
+  site: 'https//31autodetailing.github.io',
+  base: '/31AutoDetailSite',
+  trailingSlash: "ignore"
 });
