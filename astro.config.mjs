@@ -8,6 +8,6 @@ export default defineConfig({
   },
   integrations: [],
   site: 'https://31autodetailing.github.io',
-  base: '/31AutoDetailSite',
+  base: '/31AutoDetailSite/',
   trailingSlash: "ignore"
 });
