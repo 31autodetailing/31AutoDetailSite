@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoBrandImg from '../../public/logo_brand.jpg';
+
 const { company_name } = Astro.props;
 
 import Facebook from '../icons/facebook.astro';
@@ -13,23 +16,28 @@ import Youtube from '../icons/youtube.astro';
     <p>+1-508-837-9451</p>
     <p>31detail@gmail.com</p>
     <div class="links">
-      <a href="">
+      <a href="https://www.facebook.com/people/31-Detailing/61550874906211/">
         <Facebook />
       </a>
+      <!--
       <a href="">
         <Instagram />
       </a>
       <a href="">
         <Youtube />
       </a>
+      -->
     </div>
+  </div>
+  <div class="img-cont">
+    <Image class="logo-img" src={logoBrandImg} alt={`${company_name} logo`}/>
   </div>
 </footer>
 
 <style>
   footer {
     margin-top: auto;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: hsla(var(--link-color), 0.1);
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -49,5 +57,15 @@ import Youtube from '../icons/youtube.astro';
   }
   footer a:hover {
     color: hsla(var(--link-hover-color), 1);
+  }
+  footer .img-cont {
+    width: 150px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  footer .logo-img {
+    width: 100%;
+    height: 100%;
   }
 </style>

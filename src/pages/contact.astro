@@ -25,13 +25,10 @@ const baseUrl = "/31AutoDetailSite";
             >
               <p><strong>Send us an email</strong></p>
               <input name="email" type="email" placeholder="your@email">
-              <br>
               <input name="name" type="text" placeholder="your name">
-              <br>
               <textarea name="message" class="message-textarea" placeholder="message"
                 rows="1" style="overflow:hidden;"
               ></textarea>
-              <br>
               <button type="submit">Submit</button>
               <div style="display:none" class="submitted-message">
                 <p>Thank you for sending a message, we will be in touch!</p>
@@ -133,20 +130,28 @@ const baseUrl = "/31AutoDetailSite";
   .send-message-div form input {
     font-size:1.2rem;
     padding: 3px;
+    margin: 0.5rem 0;
   }
   .send-message-div form textarea {
     font-size:1.2rem;
     padding: 3px;
+    margin: 0.5rem 0;
   }
   .send-message-div form button[type=submit] {
-    padding: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
     margin-bottom: 2rem;
     border: none;
+    border-radius: 0.5rem;
+    color: hsla(var(--text-color), 1);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: "Spline Sans Mono", monospace;
     background-color: hsla(var(--link-color), 1);
   }
   .submitted-message,
   .error-message {
-    color: hsla(var(--link-hover-color), 1);
+    color: hsla(var(--form-success-color), 1);
     font-size: 0.4rem;
     width: 100%;
     max-width: 100%;
@@ -154,6 +159,7 @@ const baseUrl = "/31AutoDetailSite";
     margin: 0;
   }
   error-message {
+    color: hsla(var(--form-error-color), 1);
     background-color: black;
   }
   .loading-div {

@@ -19,43 +19,41 @@ const page_name = "QUOTE"
 
         <p class="question">Which category does your vehicle fit into?</p>
         <div class="multiple-choice" id="vehicle-category">
-          <input type="radio" id="sedan" name="vehicle-category" value="Sedan" required>
-          <label for="sedan">Sedan</label>
-          <br>
-          <input type="radio" id="two-row-suv" name="vehicle-category" value="Two Row SUV">
-          <label for="two-row-suv">Two Row SUV</label>
-          <br>
-          <input type="radio" id="three-row-suv" name="vehicle-category" value="Three Row SUV">
-          <label for="three-row-suv">Three Row SUV</label>
-          <br>
-          <input type="radio" id="single-cab-truck" name="vehicle-category" value="Single Cab Truck">
-          <label for="single-cab-truck">Single Cab Truck</label>
-          <br>
-          <input type="radio" id="extended-cab-truck" name="vehicle-category" value="Extended Cab Truck">
-          <label for="extended-cab-truck">Extended Cab Truck</label>
-          <br>
-          <input type="radio" id="crew-mega-cab-truck" name="vehicle-category" value="Crew & Mega Cab Truck">
-          <label for="crew-mega-cab-truck">Crew & Mega Cab Truck</label>
-          <br>
-          <input type="radio" id="other" name="vehicle-category" value="Other">
-          <label for="other">Other</label>
+          <label for="sedan">
+            <input type="radio" id="sedan" name="vehicle-category" value="Sedan" required>
+          Sedan</label>
+          <label for="two-row-suv">
+            <input type="radio" id="two-row-suv" name="vehicle-category" value="Two Row SUV">
+          Two Row SUV</label>
+          <label for="three-row-suv">
+            <input type="radio" id="three-row-suv" name="vehicle-category" value="Three Row SUV">
+          Three Row SUV</label>
+          <label for="single-cab-truck">
+            <input type="radio" id="single-cab-truck" name="vehicle-category" value="Single Cab Truck">
+          Single Cab Truck</label>
+          <label for="extended-cab-truck">
+            <input type="radio" id="extended-cab-truck" name="vehicle-category" value="Extended Cab Truck">
+          Extended Cab Truck</label>
+          <label for="crew-mega-cab-truck">
+            <input type="radio" id="crew-mega-cab-truck" name="vehicle-category" value="Crew & Mega Cab Truck">
+          Crew & Mega Cab Truck</label>
+          <label for="other">
+            <input type="radio" id="other" name="vehicle-category" value="Other">
+          Other</label>
         </div>
-
-        <br>
 
         <p class="question">What area(s) of your vehicle would you like cleaned ?</p>
         <div class="multiple-choice" id="service-type">
-          <input type="radio" id="interior" name="service-type" value="Interior" required>
-          <label for="interior">Interior</label>
-          <br>
-          <input type="radio" id="exterior" name="service-type" value="Exterior">
-          <label for="exterior">Exterior</label>
-          <br>
-          <input type="radio" id="both" name="service-type" value="Both Interior and Exterior">
-          <label for="both">Both Interior and Exterior</label>
+          <label for="interior">
+            <input type="radio" id="interior" name="service-type" value="Interior" required>
+          Interior</label>
+          <label for="exterior">
+            <input type="radio" id="exterior" name="service-type" value="Exterior">
+          Exterior</label>
+          <label for="both">
+            <input type="radio" id="both" name="service-type" value="Both Interior and Exterior">
+          Both Interior and Exterior</label>
         </div>
-
-        <br>
 
         <div class="service-description interior">
           <h4>Interior Services</h4>
@@ -86,23 +84,24 @@ const page_name = "QUOTE"
         <div class="service-checklist interior">
           <p class="question">Additional Interior Services</p>
           <div class="checklist" id="interior-services">
-            <input type="checkbox" id="shampoo-seats" name="interior-services" value="Shampoo-Seats">
-            <label for="shampoo-seats">Shampoo Seats</label>
-            <br>
-            <input type="checkbox" id="shampoo-carpet" name="interior-services" value="Shampoo-Carpet">
-            <label for="shampoo-carpet">Shampoo Carpet</label>
-            <br>
-            <input type="checkbox" id="shampoo-headliner" name="interior-services" value="Shampoo-Headliner">
-            <label for="shampoo-headliner">Shampoo Headliner</label>
-            <br>
-            <input type="checkbox" id="steam-clean" name="interior-services" value="Steam-Clean">
-            <label for="steam-clean">Steam Clean all nooks and crannies</label>
-            <br>
-            <input type="checkbox" id="pet-hair" name="interior-services" value="Pet-Hair-Removal">
-            <label for="pet-hair">Pet Hair Removal</label>
-            <br>
-            <input type="checkbox" id="none" name="interior-services" value="None">
-            <label for="none">None</label>
+            <label for="shampoo-seats">
+              <input type="checkbox" id="shampoo-seats" name="interior-services" value="Shampoo-Seats">
+            Shampoo Seats</label>
+            <label for="shampoo-carpet">
+              <input type="checkbox" id="shampoo-carpet" name="interior-services" value="Shampoo-Carpet">
+            Shampoo Carpet</label>
+            <label for="shampoo-headliner">
+              <input type="checkbox" id="shampoo-headliner" name="interior-services" value="Shampoo-Headliner">
+            Shampoo Headliner</label>
+            <label for="steam-clean">
+              <input type="checkbox" id="steam-clean" name="interior-services" value="Steam-Clean">
+            Steam Clean all nooks and crannies</label>
+            <label for="pet-hair">
+              <input type="checkbox" id="pet-hair" name="interior-services" value="Pet-Hair-Removal">
+            Pet Hair Removal</label>
+            <label for="none">
+              <input type="checkbox" id="none" name="interior-services" value="None">
+            None</label>
           </div>
         </div>
 
@@ -120,31 +119,28 @@ const page_name = "QUOTE"
         <div class="service-checklist exterior">
           <p class="question">Additional Exterior Services</p>
           <div class="checklist" id="exterior-services">
-            <input type="checkbox" id="wax" name="exterior-services" value="Wax">
-            <label for="wax">Wax</label>
-            <br>
-            <input type="checkbox" id="clay-bar" name="exterior-services" value="Clay-Bar">
-            <label for="clay-bar">Clay Bar</label>
-            <br>
-            <input type="checkbox" id="engine-bay" name="exterior-services" value="Engine-Bay-Cleaning">
-            <label for="engine-bay">Engine Bay Cleaning</label>
-            <br>
-            <input type="checkbox" id="none" name="exterior-services" value="None">
-            <label for="none">None</label>
+            <label for="wax">
+              <input type="checkbox" id="wax" name="exterior-services" value="Wax">
+            Wax</label>
+            <label for="clay-bar">
+              <input type="checkbox" id="clay-bar" name="exterior-services" value="Clay-Bar">
+            Clay Bar</label>
+            <label for="engine-bay">
+              <input type="checkbox" id="engine-bay" name="exterior-services" value="Engine-Bay-Cleaning">
+            Engine Bay Cleaning</label>
+            <label for="none">
+              <input type="checkbox" id="none" name="exterior-services" value="None">
+            None</label>
           </div>
         </div>
 
-
-
-        <h4>Contact Information</h4>
+        <h4 class="contact-info-h4">Contact Information</h4>
         <label for="name">Name</label>
         <input type="text" name="name" id="name" required>
         <label for="phone">Phone Number</label>
         <input type="tel" name="phone" id="phone">
         <label for="email">Email</label>
         <input type="email" name="email" id="email">
-
-        <br>
 
         <div class="form-messages"></div>
 
@@ -154,15 +150,12 @@ const page_name = "QUOTE"
 
         <button type="submit">Submit</button>
 
-        <br>
-
         <h4>Thank You !!!</h4>
         <p>
           {company_name} appreciates you filling out the quote form, 
           we will be in contact soon to give you your final quote!
         </p>
 
-        <br>
       </form>
     </div>
   </main>
@@ -199,31 +192,35 @@ const page_name = "QUOTE"
     align-items: center
   }
   #add-quote-form {
-    max-width: 600px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     margin: 0 1rem;
-  }
-
-  .form-div h4 {
-    margin: 1rem 0 0.5rem 0;
   }
   .form-div p {
     margin: 0;
   }
   .form-div button {
-    padding: 1rem;
+    padding: 0.5rem;
+    margin: 1.5rem 0 0.5rem 0;
     border: none;
+    border-radius: 0.5rem;
+    color: hsla(var(--text-color), 1);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: "Spline Sans Mono", monospace;
     background-color: hsla(var(--link-color), 1);
   }
   .form-div .question {
     padding: 0.3rem 0.5rem;
-    background-color: rgba(66, 135, 245, 0.2);
+    background-color: hsla(var(--link-color), 0.2);
     font-weight: 600;
     font-size: 1.2rem;
   }
   .form-div .multiple-choice, .form-div .checklist {
-    margin: 0 0 0 0.5rem;
+    margin: 0.3rem 0 1.2rem 0.5rem;
+    display: flex;
+    flex-direction: column;
   }
   .service-description {
     border: 1px solid hsla(var(--text-color), 1);
@@ -242,8 +239,10 @@ const page_name = "QUOTE"
     color: hsla(var(--link-hover-color), 1);
     margin: 0 0.4rem;
   }
-  .service-checklist {
-    margin: 0 0 2rem 0;
+  .contact-info-h4 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    text-decoration: underline;
   }
   .loading-div {
     z-index: 2;
@@ -368,13 +367,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.status === "success") {
           console.log("Uploaded successfully");
           target.reset();
-          formMessages.style.color = "hsla(var(--link-hover-color), 1)";
+          formMessages.style.color = "hsla(var(--form-success-color), 1)";
           formMessages.innerHTML = "Form submitted successfully!";
         }
         loadingDiv.style.display = "none";
       })
       .catch(err => {
         console.error("Error: ", err);
+        formMessages.style.color = "hsla(var(--form-error-color), 1)";
+        formMessages.innerHTML = "There was an error. Please try again.";
         loadingDiv.style.display = "none";
       })
 

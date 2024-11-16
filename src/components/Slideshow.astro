@@ -42,6 +42,7 @@ const imageList = Object.values(images);
   width: 100vw;
   max-width: 1000px;
   height: auto;
+  max-height: 800px;
 }
 img.hidden {
   display: none;
@@ -49,6 +50,7 @@ img.hidden {
 img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .prev {
   border-radius: 1rem 0 0 1rem;
@@ -66,9 +68,26 @@ img {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const slideshowImages = document.querySelectorAll(".slideshow-pics img");
+  let slideshowImages = document.querySelectorAll(".slideshow-pics img");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
+
+  // add camaro pic as first pic
+  const firstPicSrc = slideshowImages[0].src;
+  let newFirstPicSrc;
+  let index = 0;
+  for (let i of slideshowImages) {
+    if (i.src.includes("camaro")) {
+      newFirstPicSrc = i.src;
+      break;
+    }
+    index++;
+  }
+  if (newFirstPicSrc) {
+    slideshowImages[0].src = newFirstPicSrc;
+    slideshowImages[index].src = firstPicSrc;
+  }
+
   let imgIndex = 0;
   function prevImg() {
     slideshowImages[imgIndex].classList.add("hidden");

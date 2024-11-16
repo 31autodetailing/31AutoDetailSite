@@ -34,10 +34,14 @@ const baseUrl = "/31AutoDetailSite";
     --distance-from-top: 50px;
   }
   h1 {
-    margin: 0 0 0 1rem;
+    margin: 0.2rem 0 0.2rem 1rem;
     padding: 0;
     font-size: 3rem;
-    font-family: "Zeyada", cursive;
+    /* font-family: "Zeyada", cursive; */
+    font-family: var(--nav-title-font), monospace;
+    font-weight: 600;
+    color: hsla(var(--link-hover-color), 1);
+    -webkit-text-stroke: 1px hsla(var(--bg-color), 1);
   }
   .company-link {
     text-decoration: none;
@@ -48,7 +52,9 @@ const baseUrl = "/31AutoDetailSite";
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(11,17,33,1) 100%);
+    /*background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(11,17,33,1) 100%);*/
+    background: linear-gradient(90deg, rgba(183,21,46,1) 0%, rgba(25,3,6,1) 57%, rgba(9,1,2,1) 77%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(183,21,46,1) 0%, rgba(25,3,6,1) 41%, rgba(9,1,2,1) 62%, rgba(0,0,0,1) 100%);
     position: relative;
   }
   nav .nav-links a, #menu a {
@@ -147,17 +153,17 @@ const baseUrl = "/31AutoDetailSite";
     background: rgba(0, 0, 0, 0.3);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .nav-links {
       display: none;
     }
   }
-  @media (min-width: 899px) {
+  @media (min-width: 961px) {
     hamburger {
       display: none;
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     :root {
       --distance-from-top: 38px;
     }
